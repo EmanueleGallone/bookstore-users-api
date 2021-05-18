@@ -14,8 +14,8 @@ RUN apk update && apk add git
 
 WORKDIR /app
 
-RUN go build
+RUN go build -o main
 
 EXPOSE $PORT
 
-ENTRYPOINT ["go run main.go"]
+CMD ["/app/main"]
