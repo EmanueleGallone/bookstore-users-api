@@ -4,21 +4,17 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-)
-
-const (
-//mysql_user = "root"
-//mysql_user_passwords = "root"
-//mysql_host = "172.17.0.2"
+	"os"
 )
 
 var (
 	DBClient *sql.DB
 	// WARNING: replace values with environment variables!!!
-	mysql_user     = "root"       //os.Getenv(mysql_user)
-	mysql_password = "root"       //os.Getenv(mysql_password)
-	mysql_host     = "172.17.0.2" // os.Getenv(mysql_host) point to docker MYSQL
-	mysql_db       = "users_db"   //os.Getenv()
+	mysql_user     = os.Getenv("MYSQL_USER")
+	mysql_password = os.Getenv("MYSQL_PASSWORD")
+	mysql_host     = os.Getenv("MYSQL_HOST") //point to docker MYSQL
+	mysql_db       = os.Getenv("MYSQL_DB")
+
 	//WARNING do not log these values anywhere
 )
 
